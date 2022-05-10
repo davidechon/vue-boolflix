@@ -4,7 +4,7 @@
     <header class="container-fluid">
       <div class="container col-8">
         <img src="./assets/logo.png"  alt="Netflix logo" class="logo">
-        <search-bar />
+        <search-bar @mySearch="setSearchText()" :albumMovie="movie" />
       </div>
     </header>
     
@@ -12,15 +12,13 @@
     
   </div>
 </template>
-
+import AppGrid from "../AppGrid.veu";
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
 import SearchBar from './components/SearchBar.vue';
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     SearchBar,
   }
 }

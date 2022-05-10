@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     
-    <header>
-      <img src="./assets/logo.png"  alt="Netflix logo" class="logo">
-
+    <header class="container-fluid">
+      <div class="container col-8">
+        <img src="./assets/logo.png"  alt="Netflix logo" class="logo">
+        <search-bar />
+      </div>
     </header>
     
-    <search-bar />
+    
     
   </div>
 </template>
@@ -30,16 +32,17 @@ export default {
 
 header {
   height: 70px;
-  margin-bottom: 30px;
   position: relative;
   background: $bg-color;
+  border: 1px solid yellow;
+
 
   .logo {
     position: absolute;
     top: 10px;
     left: 20px;
-    width: 40px;
-    height: 40px;
+    width: 150px;
+    height: 50px;
     line-height: 70px;
   }
 }

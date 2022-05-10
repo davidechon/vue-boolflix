@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
+    <header>
+      <img src="./assets/logo.png"  alt="Netflix logo" class="logo">
+
+    </header>
+    
+    <search-bar />
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue';
+import SearchBar from './components/SearchBar.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
+    SearchBar,
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import './style/generals.scss';
+@import './style/variables.scss';
+
+header {
+  height: 70px;
+  margin-bottom: 30px;
+  position: relative;
+  background: $bg-color;
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 70px;
+  }
 }
 </style>

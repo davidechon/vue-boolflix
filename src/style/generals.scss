@@ -5,12 +5,14 @@
 @import '~@fontsource/montserrat/index.css';
 @import '~@fontsource/montserrat/400.css';
 
-
 // My Styles
-// @import './variable.scss';
+@import './variables.scss';
 
 body {
  font-family: $main-font;
  color: $text-color;
  
 }
+
+// Da usare come sfondo
+// <img src="https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/a847e6c4-f36c-4cd4-97e1-26780cab9ac3/IT-it-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg"  alt="Netflix logo">

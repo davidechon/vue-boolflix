@@ -6,7 +6,8 @@
       <search-bar @performSearch="search"/>
     </header>
     <main>      
-      <grid-list :items="movies" :loader='loading'/>
+      <grid-list :items="movies" title="Movie" :loader='loading'/>
+      <grid-list :items="series" title="Series" :loader='loadingSeries'/>
     </main>
     
     
@@ -30,7 +31,9 @@ export default {
       apiKey: '5c7b14596c15a116f90ada79b15cc30b',
       apiPath: 'https://api.themoviedb.org/3/search/',
       movies: [],
+      series: [],
       loading: false,
+      loadingSeries: false,
     }
   },
   methods:{
@@ -40,7 +43,15 @@ export default {
           this.movies = res.data.results;
           this.loading = false;
         }).catch((error)=>{
-          console.log(error);
+          console.log(error)
+        })
+      },
+      getSeries(queryParams){
+        axios.get(this.apiPath+'tv', queryParams).then((res)=>{
+          console.log(res.data.results)
+          this.series = res.data.results;
+        }).catch((error)=>{
+          console.log(error)
         })
       },
       search(text){
@@ -51,10 +62,10 @@ export default {
           query: text
         }
       }
-      this.loading = true;
-      // this.loadingSeries = true;
+      this.loading= true;
+      this.loadingSeries = true;
       this.getMovies(queryParams);
-      // this.getSeries(queryParams);
+      this.getSeries(queryParams);
     }
   }
  }

@@ -8,10 +8,19 @@
           id: {{ item.id}}
           Titolo: {{ item.title ? item.title : item.name }} - 
           Titolo Originale: {{ item.original_title  ? item.original_title : item.original_name }} - 
-          Linguae: {{ item.original_language}} - 
+          Lingua: {{ item.original_language}} - 
           <!-- Flag: <img :src="require('../assets/flag-'+item.original_language+'.png')" :alt="item.name"> -->
           <!-- <img :src="require('../assets/images/'+item.original_language+'.jpg')" alt=""> -->
           
+          <div v-if="item.original_language === 'en'">
+            Flag: <img :src="require('../assets/flag-en.png')" :alt="item.name">
+          </div>
+          <div v-else-if="item.original_language === 'it'">
+            Flag: <img :src="require('../assets/flag-it.png')" :alt="item.name">
+          </div>
+          <div v-else>
+           Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
+          </div>
 
           Voto: {{ item.vote_average}} - 
          
@@ -46,14 +55,6 @@ export default {
         // leggi(){
         //     actions.setSearch('aaaaa')
         // }
-        flagList(language){
-           if{item.original_language !== 'en' || item.original_language !== 'it'
-           
-
-           } else {
-             require('../assets/flag-eu.png')
-           }
-        }
     },
 }
 </script>

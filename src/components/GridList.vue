@@ -1,13 +1,15 @@
 <template>
   <section>
     Sono GridList
-    <button @click="leggi">Clicca</button>
+    <!-- <button @click="leggi">Clicca</button> -->
     {{ mySearch }}
   </section>
 </template>
 
 <script>
-import state from '../store.js'
+// import state from '../store.js'
+// import {state, actions} from '../store.js'
+
 export default {
   nome: 'GridList',
   data(){
@@ -16,14 +18,14 @@ export default {
     }
   }, 
   computed:{
-    mySearch(){
-      return state.search
-    }
+    // mySearch(){
+    //   return state.search
+    // }
   },
   methods:{
-    leggi(){
-      state.search = 'aaaaa';
-    }
+    // leggi(){
+    //   state.search = 'aaaaa';
+    // }
   }
 }
 </script>

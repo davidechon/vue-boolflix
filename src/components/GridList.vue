@@ -1,8 +1,17 @@
 <template>
   <section>
-    Sono GridList
-    <!-- <button @click="leggi">Clicca</button> -->
-    {{ mySearch }}
+    <h2>{{title}}</h2>
+   <ul>
+        <li v-for="item in items" :key="item.id">
+          id: {{ item.id}}
+          title: {{ item.title}}
+          original_title: {{ item.original_title}}
+          original_language: {{ item.original_language}}
+          <!-- <img :src="require('.assets/images/'+item.original_language+'.jpg')" alt=""> -->
+          vote_average: {{ item.vote_average}}
+         
+        </li>
+      </ul>
   </section>
 </template>
 
@@ -12,6 +21,10 @@
 
 export default {
   nome: 'GridList',
+  props:{
+    items: Array,
+    loader: Boolean
+  },// ['items', 'loader'],
   data(){
     return {
       

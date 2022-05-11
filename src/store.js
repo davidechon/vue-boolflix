@@ -1,17 +1,19 @@
-import Vue from 'vue'
-// Versione semplice
-const state = Vue.observable({
-  search: 'a',
-  species: []
-})
-export default state;
+// import Vue from 'vue'
+// // Versione semplice
+// const state = Vue.observable({
+//   search: 'a',
+//   movies: [],
+//  series: []
+// })
+// export default state;
 
 
 
 // Versione avanzata con controlli
 // const _state = Vue.observable({
 //   search: '',
-//   species: []
+//   movies: [],
+//  series: []
 // })
 
 // const state = ()=> ({..._state});

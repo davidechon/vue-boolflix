@@ -3,13 +3,12 @@
     
     <header class="container-fluid">
       <h1 class="display-6">Boolfix</h1>
-      <search-bar />
-      <!-- <div class="container col-8">
-        <img src="./assets/logo.png"  alt="Netflix logo" class="logo">
-      </div> -->
+      <search-bar @performSearch="search"/>
     </header>
     <main>
-      <grid-list />
+      <!-- <button @click="getMovies">Carica</button> -->
+      
+      <grid-list :items="movies" :loader='loading'/>
     </main>
     
     
@@ -18,17 +17,52 @@
 </template>
 
 <script>
-// import AppGrid from "./components/AppGrid.vue";
+import GridList from "./components/GridList.vue";
 import SearchBar from './components/SearchBar.vue';
-import GridList from './components/GridList.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    // AppGrid,
     SearchBar,
     GridList,
-  }
+  },
+  data(){
+    return {
+      apiKey: '5c7b14596c15a116f90ada79b15cc30b',
+      apiPath: 'https://api.themoviedb.org/3/search/',
+      movies: [],
+      loading: false,
+    }
+  },
+  methods:{
+    getMovies(queryParams){
+      axios.get(this.apiPath+'movie', queryParams).then((res)=>{
+        console.log(res.data.results)
+        this.movies = res.data.results;
+      }).catch((error)=>{
+      console.log(error)})
+      },
+      search(text){
+        console.log(text)
+          const queryParams = {
+          params:{
+            api_Key: this.apiKey,
+            query: 'text', 
+          }
+        }
+        this.loading = true,
+        this.getMovies(queryParams);
+      },
+      
+    },
+    
+  // results []
+  // id
+  // title
+  // original_title
+  // original_language
+  // vote_average
 }
 </script>
     

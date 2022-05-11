@@ -5,9 +5,7 @@
       <h1 class="display-6">Boolfix</h1>
       <search-bar @performSearch="search"/>
     </header>
-    <main>
-      <!-- <button @click="getMovies">Carica</button> -->
-      
+    <main>      
       <grid-list :items="movies" :loader='loading'/>
     </main>
     
@@ -36,26 +34,30 @@ export default {
     }
   },
   methods:{
-    getMovies(queryParams){
-      axios.get(this.apiPath+'movie', queryParams).then((res)=>{
-        console.log(res.data.results)
-        this.movies = res.data.results;
-      }).catch((error)=>{
-      console.log(error)})
+      getMovies(queryParams){
+        axios.get(this.apiPath+'movie', queryParams).then((res)=>{
+          //console.log(res.data.results)
+          this.movies = res.data.results;
+          this.loading = false;
+        }).catch((error)=>{
+          console.log(error);
+        })
       },
       search(text){
-        console.log(text)
-          const queryParams = {
-          params:{
-            api_Key: this.apiKey,
-            query: 'text', 
-          }
+      //console.log(text);
+       const queryParams = {
+        params:{
+          api_key: this.apiKey,
+          query: text
         }
-        this.loading = true,
-        this.getMovies(queryParams);
-      },
-      
-    },
+      }
+      this.loading = true;
+      // this.loadingSeries = true;
+      this.getMovies(queryParams);
+      // this.getSeries(queryParams);
+    }
+  }
+ }
     
   // results []
   // id
@@ -63,7 +65,7 @@ export default {
   // original_title
   // original_language
   // vote_average
-}
+
 </script>
     
 

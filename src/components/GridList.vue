@@ -3,12 +3,14 @@
     <h2>{{title}}</h2>
    <ul>
         <li v-for="item in items" :key="item.id">
-          id: {{ item.id}}
-          title: {{ item.title}}
-          original_title: {{ item.original_title}}
-          original_language: {{ item.original_language}}
+          <!-- poster_path: {{ item.poster_path}} -->
+          <!-- backdrop_path: {{ item.backdrop_path}} -->
+          <!-- id: {{ item.id}} -->
+          Titolo: {{ item.title}} - 
+          Titolo Originale: {{ item.original_title}} - 
+          Linguae: {{ item.original_language}} - 
           <!-- <img :src="require('.assets/images/'+item.original_language+'.jpg')" alt=""> -->
-          vote_average: {{ item.vote_average}}
+          Voto: {{ item.vote_average}} - 
          
         </li>
       </ul>
@@ -20,29 +22,30 @@
 // import {state, actions} from '../store.js'
 
 export default {
-  nome: 'GridList',
-  props:{
-    items: Array,
-    loader: Boolean
-  },// ['items', 'loader'],
-  data(){
-    return {
-      
-    }
-  }, 
-  computed:{
-    // mySearch(){
-    //   return state.search
-    // }
-  },
-  methods:{
-    // leggi(){
-    //   state.search = 'aaaaa';
-    // }
-  }
+    name: 'GridList',
+    props:{
+        items: Array,
+        loader: Boolean,
+        title: String
+    //['items','loader'],
+    },
+    data(){
+        return {
+            
+        }
+    },
+    computed: {
+        // mysearch(){
+        //     return state.search
+        // }
+    },
+    methods:{
+        // leggi(){
+        //     actions.setSearch('aaaaa')
+        // }
+    },
 }
 </script>
 
-<style>
-
+<style lang="scss">
 </style>

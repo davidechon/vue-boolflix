@@ -4,13 +4,11 @@
    <ul>
         <li v-for="(item) in items" :key="item.id">
           <!-- poster_path: {{ item.poster_path}} -->
-          <!-- backdrop_path: {{ item.backdrop_path}} -->
-          id: {{ item.id}}
-          Titolo: {{ item.title ? item.title : item.name }} - 
-          Titolo Originale: {{ item.original_title  ? item.original_title : item.original_name }} - 
-          Lingua: {{ item.original_language}} - 
-          <!-- Flag: <img :src="require('../assets/flag-'+item.original_language+'.png')" :alt="item.name"> -->
-          <!-- <img :src="require('../assets/images/'+item.original_language+'.jpg')" alt=""> -->
+          Poster: <img :src="'https://image.tmdb.org/t/p/w185/'+ item.poster_path" :alt="item.title"> <br>
+          id: {{ item.id}} <br>
+          Titolo: {{ item.title ? item.title : item.name }} <br> 
+          Titolo Originale: {{ item.original_title ? item.original_title : item.original_name }} <br> 
+          Lingua: {{ item.original_language}} <br> 
           
           <div v-if="item.original_language === 'en'">
             Flag: <img :src="require('../assets/flag-en.png')" :alt="item.name">
@@ -20,9 +18,9 @@
           </div>
           <div v-else>
            Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
-          </div>
+          </div> <br>
 
-          Voto: {{ item.vote_average}} - 
+          Voto: {{ item.vote_average}}
          
         </li>
       </ul>

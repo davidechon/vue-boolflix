@@ -1,5 +1,7 @@
 <template>
   <section class="container">
+    <search-bar @mySearch="setSearchText()" :albumMovie="movie" />
+
     <div class="row row-cols-10 d-flex flex-wrap justify-content-center">
       <div
       v-for="(item, index) in movieList"
@@ -19,14 +21,18 @@
 
 <script>
 import axios from "axios";
+import SearchBar from "./SearchBar.vue"
 
 export default {
 name: 'AppGrid',
+components: {
+    SearchBar,
+  },
 data(){
   return{
     movieList: [],
     searchText:'',
-    apiPath: "https://www.themoviedb.org/3/",
+    apiPath: "https://api.themoviedb.org/3/movie/550?api_key=5c7b14596c15a116f90ada79b15cc30b&query=search&query=movie&language=it-IT",
     movie: [],
     filteredMovies: [],
   };
@@ -37,9 +43,9 @@ methods:{
   },
 },
 created(){
-  axios.get(this.apiPath + "movies" ).then((res)=>{
+  axios.get(this.apiPath  ).then((res)=>{
     console.log("qui entra axios" + res);
-    this.movie = [res.data],
+    this.movie = res.data.response,
     this.movieList.forEach((item)=>{
       if(!this.title.includes(item.title)){
         this.movie.push(item.movie);

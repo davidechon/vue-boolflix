@@ -19,7 +19,6 @@
           <div v-else>
            Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
           </div> <br>
-
           Voto: {{ item.vote_average}}
          
         </li>

@@ -19,42 +19,56 @@
           <div v-else>
            Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
           </div> <br>
-          Voto: {{ item.vote_average }} <i class="fa-solid fa-star text-warning ">{{ item.vote_average }}</i>
+          <!-- Voto/Stelle -->
+           <p class="px-2 star">Voto-Francesco: 
+                   <i v-for="index in myStar(item.vote_average)"
+                                :key="index"
+                                font-awesome-icon
+                                class="fa-solid fa-star">
+                   </i>
+                    </p>  
+
+
+
+          <!-- Voto/Stelle -->
+          Voto-1: {{ item.vote_average }} <i class="fa-solid fa-star text-warning ">{{ item.vote_average }}</i>
           <!-- Voto: {{ 'voteStars(item.vote_average)' }} -->
           
           <div>
            
           </div>
-            Voto: 
+            Voto-2: <i class="fa-solid fa-star text-warning "></i>
            <!-- <i v-for="index in myStar(item.vote_average)" :key="index" class="fa-solid fa-star"></i> -->
           <!-- <span v-if="item.vote_average === 0"><i class="fa-regular fa-star"></i></span> -->
            <br>
 
-          <div v-for="index in myStar(item.vote_average)" :key="index"> 
+          <div v-for="index in myStar(item.vote_average)" :key="index">  div container
            
-            <div v-if="myVote(item.vote_average) >=2">
-              Voto: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <div v-if="myStar(item.vote_average) >=2">
+              Voto-3: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
             </div>
             
-            <div v-else-if="myVote(item.vote_average) >=4">
-              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <div v-else-if="myStar(item.vote_average) >=4">
+              Voto-4: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
             </div>
-            <div v-else-if="myVote(item.vote_average) >=6">
-              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i>
+            <div v-else-if="myStar(item.vote_average) >=6">
+              Voto-5: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i>
             </div>
-            <div v-else-if="myVote(item.vote_average) >=8">
-              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <div v-else-if="myStar(item.vote_average) >=8">
+              Voto-6: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
             </div>
             <div v-else-if="parseInt(vote_average) >=10">
-            Voto: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            Voto-7: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
             </div>
             <div v-else>
             Nessun voto
             </div> <br>
           </div>
-         
+          <!-- Voto/Stelle -->
         </li>
       </ul>
+
+
   </section>
 </template>
 
@@ -86,7 +100,7 @@ export default {
         //     actions.setSearch('aaaaa')
         // }
         myStar(number){
-          return Math.round(number / 2);
+          return Math.round(number/2);
         },
     },
 }

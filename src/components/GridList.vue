@@ -19,7 +19,39 @@
           <div v-else>
            Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
           </div> <br>
-          Voto: {{ item.vote_average}}
+          Voto: {{ item.vote_average }} <i class="fa-solid fa-star text-warning ">{{ item.vote_average }}</i>
+          <!-- Voto: {{ 'voteStars(item.vote_average)' }} -->
+          
+          <div>
+           
+          </div>
+            Voto: 
+           <!-- <i v-for="index in myStar(item.vote_average)" :key="index" class="fa-solid fa-star"></i> -->
+          <!-- <span v-if="item.vote_average === 0"><i class="fa-regular fa-star"></i></span> -->
+           <br>
+
+          <div v-for="index in myStar(item.vote_average)" :key="index"> 
+           
+            <div v-if="myVote(item.vote_average) >=2">
+              Voto: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            
+            <div v-else-if="myVote(item.vote_average) >=4">
+              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <div v-else-if="myVote(item.vote_average) >=6">
+              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <div v-else-if="myVote(item.vote_average) >=8">
+              Voto: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <div v-else-if="parseInt(vote_average) >=10">
+            Voto: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            </div>
+            <div v-else>
+            Nessun voto
+            </div> <br>
+          </div>
          
         </li>
       </ul>
@@ -35,7 +67,8 @@ export default {
     props:{
         items: Array,
         loader: Boolean,
-        title: String
+        title: String,
+        
     //['items','loader'],
     },
     data(){
@@ -52,9 +85,13 @@ export default {
         // leggi(){
         //     actions.setSearch('aaaaa')
         // }
+        myStar(number){
+          return Math.round(number / 2);
+        },
     },
 }
 </script>
 
 <style lang="scss">
+
 </style>

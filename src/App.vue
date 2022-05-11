@@ -67,9 +67,16 @@ export default {
       this.getMovies(queryParams);
       this.getSeries(queryParams);
     }
+  },
+  // voteStars(number){
+  //   return Math.round(number / 2);
+  // },
+  // myVote(){
+  //   return Math.round(this.item.vote_average / 2);
+  //   // this.$emit('myVote', this.item.vote_average);
+  // },
+
   }
- }
-    
   // results []
   // id
   // title

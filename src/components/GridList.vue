@@ -4,11 +4,12 @@
     <h2>{{title}}</h2>
       <div class="card-group debug">
         <div v-for="(item) in items" :key="item.id" class="card">
-            <div class="debug"><img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img-top" >
+            <div class="poster  debug">
+              <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
             </div><!-- /poster -->
-          <!-- <div>id: {{ item.id}}
-          </div> -->
-          <div class="text-card">
+          <!-- <div>id: {{ item.id}}</div> -->
+
+          <div  class="text-card overlay">
             <div>Titolo: {{ item.title ? item.title : item.name }}  </div>
             <div>Titolo Originale: {{ item.original_title ? item.original_title : item.original_name }} </div>
             <div>Lingua: {{ item.original_language}}
@@ -109,23 +110,29 @@ export default {
   background: #333;
   color: white;
 
-
+  .card-group{
+    position: relative;
+  }
   .card{
   background: #333;
   color: white;
   min-width: 250px;
-  min-height: 100%;
+  // min-height: 480px;
   margin: 3px auto;
   padding: 10px;
   display: flex;
   flex-flow: row wrap;
-  border: 1px solid yellow;
+  }
+  .poster{
+    position: relative;
   }
   .text-card{
-    border: 1px solid violet;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px;
-    font-weight: 300;
+    padding: 20px;
+    font-weight: 200;
   }
 
   .flag{
@@ -134,6 +141,24 @@ export default {
 
 }
 
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.9); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 14px;
+  padding: 18px;
+  overflow: auto;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
 
 
 

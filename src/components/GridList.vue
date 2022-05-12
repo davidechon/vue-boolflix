@@ -28,7 +28,14 @@
                    </i>
                     </p>  
 
-
+           <!-- Voto/Stelle Giuliano-->
+           <div>
+             Voto Giuliano:
+             <span v-for="(n, index) in 5" :key="index">
+               <i :class="n <= transformScale(item.vote_average) ? 'fa-solid fa-star' : 'fa-regular fa-star' "></i>
+             </span>
+           </div>
+           <!-- /Voto/Stelle Giuliano -->
 
           <!-- Voto/Stelle -->
           Voto-1: {{ item.vote_average }} <i class="fa-solid fa-star text-warning ">{{ item.vote_average }}</i>
@@ -94,6 +101,11 @@ export default {
         // mysearch(){
         //     return state.search
         // }
+        // Soluzione di Giuliano. Dovrebbe essere una Computed
+        // transformScale(item){
+        //   return parseInt(this.item.vote_average / 2)
+        // },
+        // Giuliano
     },
     methods:{
         // leggi(){
@@ -102,6 +114,11 @@ export default {
         myStar(number){
           return Math.round(number/2);
         },
+        // Soluzione di Giuliano. Dovrebbe essere una Computed
+        transformScale(item){
+          return parseInt(item.vote_average / 2)
+        },
+        // Giuliano ==> Spostato in computed
     },
 }
 </script>

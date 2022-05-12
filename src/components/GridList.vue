@@ -2,9 +2,9 @@
   <section>
     <div class="container d-flex flex-wrap">
     <h2>{{title}}</h2>
-      <div class="card-group debug">
+      <div class="card-group">
         <div v-for="(item) in items" :key="item.id" class="card">
-            <div class="poster  debug">
+            <div class="poster">
               <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
             </div><!-- /poster -->
           <!-- <div>id: {{ item.id}}</div> -->

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     
-    <header class="container-fluid">
+    <header class="container-fluid d-flex flex-row justify-content-between align-items-center">
       <h1 class="display-6">Boolflix</h1>
-      <search-bar @performSearch="search"/>
+      <search-bar @performSearch="search" class=""/>
     </header>
     <main>
       <grid-list :items="movies" title="Movie" :loader='loading'/>
@@ -92,20 +92,18 @@ export default {
 @import './styles/generals.scss';
 @import './styles/variables.scss';
 
-// header {
-//   height: 70px;
-//   position: relative;
-//   background: $bg-color;
-//   border: 1px solid yellow;
+header {
+  height: 70px;
+  position: relative;
+  background: $bg-color;
 
-
-//   .logo {
-//     position: absolute;
-//     top: 10px;
-//     left: 20px;
-//     width: 150px;
-//     height: 50px;
-//     line-height: 70px;
-//   }
-// }
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 150px;
+    height: 50px;
+    line-height: 70px;
+  }
+}
 </style>

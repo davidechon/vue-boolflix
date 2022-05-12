@@ -1,10 +1,11 @@
 <template>
   <section>
-    <div class="container">
+    <div class="container d-flex flex-wrap">
     <h2>{{title}}</h2>
-      <ul class="card row-cols-5 d-flex flex-wrap justify-content-center debug">
-        <li v-for="(item) in items" :key="item.id" class="card col d-flex flex-wrap justify-content-center debug">
-          <div>Poster: <img :src="'https://image.tmdb.org/t/p/w185/'+ item.poster_path" :alt="item.title" class="card-img-top" >
+      <div class="card row row-cols-5 debug">
+        <div v-for="(item) in items" :key="item.id" class="">
+          <div>
+            <div class="debug"><img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img-top" >
           </div>
           <div>id: {{ item.id}}
           </div>
@@ -28,8 +29,9 @@
               <i :class="n <= transformScale(item) ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' "></i>
             </span>
           </div>
-        </li>
-      </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -101,10 +103,23 @@ export default {
 </script>
 
 <style lang="scss">
-.card{
-  background-color: #333;
-  color: black;
+@import '../styles/variables.scss';
+
+.container{
+  background: #333;
+  color: white;
+
+
+  .card{
+  background: #333;
+  color: white;
+  width: 100%;
+  }
+
 }
+
+
+
 
 .debug{
   border: 1px solid red;

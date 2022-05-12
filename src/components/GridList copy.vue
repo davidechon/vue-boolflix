@@ -1,41 +1,7 @@
 <template>
   <section>
-    <div class="container">
     <h2>{{title}}</h2>
-      <ul class="card row-cols-5 d-flex flex-wrap justify-content-center debug">
-        <li v-for="(item) in items" :key="item.id" class="card col d-flex flex-wrap justify-content-center debug">
-          <div>Poster: <img :src="'https://image.tmdb.org/t/p/w185/'+ item.poster_path" :alt="item.title" class="card-img-top" >
-          </div>
-          <div>id: {{ item.id}}
-          </div>
-          <div>Titolo: {{ item.title ? item.title : item.name }} 
-           </div>
-          <div>Titolo Originale: {{ item.original_title ? item.original_title : item.original_name }}  
-          </div>
-          <div>Lingua: {{ item.original_language}}</div>
-          <div v-if="item.original_language === 'en'">
-            Flag: <img :src="require('../assets/flag-en.png')" :alt="item.name">
-          </div>
-          <div v-else-if="item.original_language === 'it'">
-            Flag: <img :src="require('../assets/flag-it.png')" :alt="item.name">
-          </div>
-          <div v-else>
-          Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
-          </div> <br>
-          <div>
-            Voto:
-            <span v-for="(n, index) in 5" :key="index">
-              <i :class="n <= transformScale(item) ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' "></i>
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-
-
-
-    <!-- <ul>
+   <ul>
       <li v-for="(item) in items" :key="item.id">
         Poster: <img :src="'https://image.tmdb.org/t/p/w185/'+ item.poster_path" :alt="item.title"> <br>
         id: {{ item.id}} <br>
@@ -59,7 +25,7 @@
           </span>
         </div>
       </li>
-    </ul> -->
+    </ul>
   </section>
 </template>
 
@@ -101,12 +67,5 @@ export default {
 </script>
 
 <style lang="scss">
-.card{
-  background-color: #333;
-  color: black;
-}
 
-.debug{
-  border: 1px solid red;
-}
 </style>

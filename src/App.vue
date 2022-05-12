@@ -2,14 +2,13 @@
   <div id="app">
     
     <header class="container-fluid">
-      <h1 class="display-6">Boolfix</h1>
+      <h1 class="display-6">Boolflix</h1>
       <search-bar @performSearch="search"/>
     </header>
-    <main>      
+    <main>
       <grid-list :items="movies" title="Movie" :loader='loading'/>
       <grid-list :items="series" title="Series" :loader='loadingSeries'/>
     </main>
-    <!-- <card-comp /> -->
     
     
     
@@ -20,14 +19,12 @@
 import GridList from "./components/GridList.vue";
 import SearchBar from './components/SearchBar.vue';
 import axios from 'axios';
-// import CardComp from './components/CardComp.vue';
 
 export default {
   name: 'App',
   components: {
     SearchBar,
     GridList,
-    // CardComp,
   },
   data()
     {

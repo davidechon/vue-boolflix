@@ -9,6 +9,7 @@
       <grid-list :items="movies" title="Movie" :loader='loading'/>
       <grid-list :items="series" title="Series" :loader='loadingSeries'/>
     </main>
+    <!-- <card-comp /> -->
     
     
     
@@ -19,14 +20,17 @@
 import GridList from "./components/GridList.vue";
 import SearchBar from './components/SearchBar.vue';
 import axios from 'axios';
+// import CardComp from './components/CardComp.vue';
 
 export default {
   name: 'App',
   components: {
     SearchBar,
     GridList,
+    // CardComp,
   },
-  data(){
+  data()
+    {
     return {
       apiKey: '5c7b14596c15a116f90ada79b15cc30b',
       apiPath: 'https://api.themoviedb.org/3/search/',

@@ -5,10 +5,13 @@
       <div class="card-group">
         <div v-for="(item) in items" :key="item.id" class="card">
             <div class="poster">
+              <!-- <div>
+                 <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
+                  <img :src="'https://placeholder.com/340'" :alt="item.title" class="card-img poster" >
+              </div> -->
               <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
             </div><!-- /poster -->
           <!-- <div>id: {{ item.id}}</div> -->
-
           <div  class="text-card overlay">
             <div>Titolo: {{ item.title ? item.title : item.name }}  </div>
             <div>Titolo Originale: {{ item.original_title ? item.original_title : item.original_name }} </div>
@@ -38,31 +41,7 @@
 
 
 
-    <!-- <ul>
-      <li v-for="(item) in items" :key="item.id">
-        Poster: <img :src="'https://image.tmdb.org/t/p/w185/'+ item.poster_path" :alt="item.title"> <br>
-        id: {{ item.id}} <br>
-        Titolo: {{ item.title ? item.title : item.name }} <br> 
-        Titolo Originale: {{ item.original_title ? item.original_title : item.original_name }} <br> 
-        Lingua: {{ item.original_language}} <br> 
-        
-        <div v-if="item.original_language === 'en'">
-          Flag: <img :src="require('../assets/flag-en.png')" :alt="item.name">
-        </div>
-        <div v-else-if="item.original_language === 'it'">
-          Flag: <img :src="require('../assets/flag-it.png')" :alt="item.name">
-        </div>
-        <div v-else>
-        Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
-        </div> <br>
-        <div>
-          Voto:
-          <span v-for="(n, index) in 5" :key="index">
-            <i :class="n <= transformScale(item) ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' "></i>
-          </span>
-        </div>
-      </li>
-    </ul> -->
+    
   </section>
 </template>
 

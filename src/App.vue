@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     
-    <header class="container-fluid d-flex flex-row justify-content-between align-items-center">
-      <h1 class="display-6">Boolflix</h1>
-      <search-bar @performSearch="search" class=""/>
+    <header class="container-fluid fixed-top">
+      <nav class="container d-flex flex-row justify-content-between align-items-center">
+        <img src="./assets/logo.png" alt="logo" class="myLogo">
+        <search-bar @performSearch="search" class="myInput"/>
+      </nav>
     </header>
-    <main>
-      <grid-list :items="movies" title="Movie" :loader='loading'/>
-      <grid-list :items="series" title="Series" :loader='loadingSeries'/>
+    <main class="cover">
+      <div>
+        <grid-list :items="movies" title="Movie" :loader='loading' class="top80"/>
+        <grid-list :items="series" title="Series" :loader='loadingSeries' class="top40"/>
+      </div>
     </main>
     
     
@@ -94,16 +98,48 @@ export default {
 
 header {
   height: 70px;
+  margin-bottom: 30px;
   position: relative;
   background: $bg-color;
 
-  .logo {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    width: 150px;
-    height: 50px;
-    line-height: 70px;
+  nav{
+    margin: 10px auto;
+    line-height: 30px;
+
+    .myLogo {
+      position: relative;
+      width: 150px;
+      height: 50px;
+      line-height: 70px;
+    }
+
+    .myInput{
+      width: 30%;
+        display: flex;
+        flex-flow: row nowrap;
+    }
   }
 }
+main{
+  
+  // .cover{
+  //   background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/a847e6c4-f36c-4cd4-97e1-26780cab9ac3/IT-it-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  //   height: 100vh;
+  //   // background-blend-mode: color-burn;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   // opacity: 0.7;
+  // }
+
+  .top80{
+    margin-top: 80px;
+    z-index: 10;
+  }
+  .top10{
+    margin-top: 10px;
+    z-index: 10;
+  }
+}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
-      <input type="text" v-model="search" @keyup.enter="$emit('performSearch',search)">
-      <button @click="cerca">Cerca</button>
+      <input type="text" v-model="search" @keyup.enter="$emit('performSearch',search)" placeholder="Cerca un film o una serie tv" class="form-control" aria-label="Sizing example input">
+      <button @click="cerca">Cerca...</button>
     </div>
 </template>
 
@@ -29,4 +29,6 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 </style>

@@ -19,59 +19,13 @@
           <div v-else>
            Flag: <img :src="require('../assets/flag-eu.png')" :alt="item.name">
           </div> <br>
-          <!-- Voto/Stelle -->
-           <p class="px-2 star">Voto-Francesco: 
-                   <i v-for="index in myStar(item.vote_average)"
-                                :key="index"
-                                font-awesome-icon
-                                class="fa-solid fa-star">
-                   </i>
-                    </p>  
-
-           <!-- Voto/Stelle Giuliano-->
+           
            <div>
-             Voto Giuliano:
+             Voto:
              <span v-for="(n, index) in 5" :key="index">
-               <i :class="n <= transformScale(item.vote_average) ? 'fa-solid fa-star' : 'fa-regular fa-star' "></i>
+               <i :class="n <= transformScale(item) ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star' "></i>
              </span>
            </div>
-           <!-- /Voto/Stelle Giuliano -->
-
-          <!-- Voto/Stelle -->
-          Voto-1: {{ item.vote_average }} <i class="fa-solid fa-star text-warning ">{{ item.vote_average }}</i>
-          <!-- Voto: {{ 'voteStars(item.vote_average)' }} -->
-          
-          <div>
-           
-          </div>
-            Voto-2: <i class="fa-solid fa-star text-warning "></i>
-           <!-- <i v-for="index in myStar(item.vote_average)" :key="index" class="fa-solid fa-star"></i> -->
-          <!-- <span v-if="item.vote_average === 0"><i class="fa-regular fa-star"></i></span> -->
-           <br>
-
-          <div v-for="index in myStar(item.vote_average)" :key="index">  div container
-           
-            <div v-if="myStar(item.vote_average) >=2">
-              Voto-3: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
-            </div>
-            
-            <div v-else-if="myStar(item.vote_average) >=4">
-              Voto-4: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
-            </div>
-            <div v-else-if="myStar(item.vote_average) >=6">
-              Voto-5: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i>
-            </div>
-            <div v-else-if="myStar(item.vote_average) >=8">
-              Voto-6: <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
-            </div>
-            <div v-else-if="parseInt(vote_average) >=10">
-            Voto-7: <i class="fa-solid fa-star text-warning "></i> <i class="fa-solid fa-star text-warning"> </i><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
-            </div>
-            <div v-else>
-            Nessun voto
-            </div> <br>
-          </div>
-          <!-- Voto/Stelle -->
         </li>
       </ul>
 
@@ -101,24 +55,17 @@ export default {
         // mysearch(){
         //     return state.search
         // }
-        // Soluzione di Giuliano. Dovrebbe essere una Computed
-        // transformScale(item){
-        //   return parseInt(this.item.vote_average / 2)
-        // },
-        // Giuliano
+        
     },
     methods:{
         // leggi(){
         //     actions.setSearch('aaaaa')
         // }
-        myStar(number){
-          return Math.round(number/2);
-        },
-        // Soluzione di Giuliano. Dovrebbe essere una Computed
+       
         transformScale(item){
-          return parseInt(item.vote_average / 2)
+          return Math.round(item.vote_average / 2)
         },
-        // Giuliano ==> Spostato in computed
+        
     },
 }
 </script>

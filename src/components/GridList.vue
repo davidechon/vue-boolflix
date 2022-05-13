@@ -5,12 +5,9 @@
       <div class="card-group">
         <div v-for="(item) in items" :key="item.id" class="card">
             <div class="poster">
-              <!-- <div>
-                 <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
-                  <img :src="'https://placeholder.com/340'" :alt="item.title" class="card-img poster" >
-              </div> -->
-              <img :src="'https://image.tmdb.org/t/p/w342/'+ item.poster_path" :alt="item.title" class="card-img poster" >
-            </div><!-- /poster -->
+          
+                <img v-if ="item.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path" class="card-img poster" :alt="item.name"/>
+              </div>
           <!-- <div>id: {{ item.id}}</div> -->
           <div  class="text-card overlay">
             <div>Titolo: {{ item.title ? item.title : item.name }}  </div>
@@ -96,15 +93,19 @@ export default {
   background: #333;
   color: white;
   min-width: 250px;
-  // min-height: 480px;
+  min-height: 300px;
   margin: 3px auto;
   padding: 10px;
   display: flex;
   flex-flow: row wrap;
+  border: 0;
   }
   .poster{
     position: relative;
-  }
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  } 
   .text-card{
     position: absolute;
     top: 0;

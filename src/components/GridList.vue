@@ -108,9 +108,13 @@ export default {
   } 
   .text-card{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
+    min-width: 250px;
+    min-height: 300px;
+    margin: 3px auto;
     width: 100%;
+    height: 100%;
     padding: 20px;
     font-weight: 200;
   }
@@ -120,7 +124,6 @@ export default {
   }
 
 }
-
 .overlay {
   position: absolute; 
   bottom: 0; 

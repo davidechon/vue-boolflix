@@ -9,9 +9,9 @@
     </header>
     <main class="mainSet">
       <div class="topHidden"></div>
-      <div class="">  
-        <grid-list :items="movies" title="Movie" :loader='loading' class="top80"/>
-        <grid-list :items="series" title="Series" :loader='loadingSeries' class="top40"/>
+      <div>  
+        <grid-list :items="movies" title="Movie" :loader='loading'/>
+        <grid-list :items="series" title="Series" :loader='loadingSeries'/>
       </div>
     </main>
     
@@ -102,7 +102,6 @@ body {
     height: 100vh;
     background-blend-mode: color-burn;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
   
 
@@ -134,15 +133,6 @@ body {
   main{
     .topHidden{
       height: 100px;
-      border: 1px solid yellow;
-    }
-    .top80{
-      margin-top: 80px;
-      // z-index: 10;
-    }
-    .top10{
-      margin-top: 10px;
-      // z-index: 10;
     }
   }// /main
 } // /body

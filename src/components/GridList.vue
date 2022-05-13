@@ -4,10 +4,9 @@
     <h2>{{title}}</h2>
       <div class="card-group">
         <div v-for="(item) in items" :key="item.id" class="card">
-            <div class="poster">
-          
-                <img v-if ="item.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path" class="card-img poster" :alt="item.name"/>
-              </div>
+          <div class="poster">
+            <img :src="item.poster_path ? 'https://image.tmdb.org/t/p/w342/' + item.poster_path : require('../assets/logo-small.png')" class="card-img poster" :alt="item.name">
+          </div>
           <!-- <div>id: {{ item.id}}</div> -->
           <div  class="text-card overlay">
             <div>Titolo: {{ item.title ? item.title : item.name }}  </div>
@@ -86,66 +85,71 @@ export default {
   background: #333;
   color: white;
 
-  .card-group{
-    position: relative;
-  }
-  .card{
-  background: #333;
-  color: white;
-  min-width: 250px;
-  min-height: 300px;
-  margin: 3px auto;
-  padding: 10px;
-  display: flex;
-  flex-flow: row wrap;
-  border: 0;
-  }
-  .poster{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  } 
-  .text-card{
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    .card-group{
+      position: relative;
+    }
+    .card{
+    background-color: #333;
+    color: white;
     min-width: 250px;
     min-height: 300px;
     margin: 3px auto;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    font-weight: 200;
-  }
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    border: 0;
+    }
+  
+    .poster{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background-color: #333;
+      }
+  
+    .text-card{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      min-width: 250px;
+      min-height: 300px;
+      margin: 3px auto;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      font-weight: 200;
+    }
 
-  .flag{
-    width: 50px;
-  }
+    .flag{
+      width: 50px;
+    }
 
-}
-.overlay {
-  position: absolute; 
-  bottom: 0; 
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.9); /* Black see-through */
-  color: #f1f1f1; 
-  width: 100%;
-  transition: .5s ease;
-  opacity:0;
-  color: white;
-  font-size: 14px;
-  padding: 18px;
-  overflow: auto;
-}
 
-.card:hover .overlay {
-  opacity: 1;
-}
+    .overlay {
+      position: absolute; 
+      bottom: 0; 
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.9); /* Black see-through */
+      color: #f1f1f1; 
+      width: 100%;
+      transition: .5s ease;
+      opacity:0;
+      color: white;
+      font-size: 14px;
+      padding: 18px;
+      overflow: auto;
+    }
 
+    .card:hover .overlay {
+      opacity: 1;
+    }
+} // /container
 
 
 .debug{
   border: 1px solid red;
 }
+
+
 </style>
